@@ -64,7 +64,7 @@ public class NativeEngine: NSObject, Engine, URLSessionDataDelegate, URLSessionW
             write(string: text, completion: completion)
         case .ping:
             task?.sendPing(pongReceiveHandler: { [weak self] (error) in
-                self?.broadcast(event: .error(error))
+                self?.broadcast(event: .ping(nil, error))
                 completion?()
             })
         default:

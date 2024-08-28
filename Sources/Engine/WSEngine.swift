@@ -223,9 +223,9 @@ FrameCollectorDelegate, HTTPHandlerDelegate {
         case .binary(let data):
             broadcast(event: .binary(data))
         case .pong(let data):
-            broadcast(event: .pong(data))
+            broadcast(event: .pong(data, nil))
         case .ping(let data):
-            broadcast(event: .ping(data))
+            broadcast(event: .ping(data, nil))
             if respondToPingWithPong {
                 write(data: data ?? Data(), opcode: .pong, completion: nil)
             }
